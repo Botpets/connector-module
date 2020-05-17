@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: nlpconnector-service
+Implementation-Version: 1.0.1
+Built-By: shiva
+Implementation-Vendor-Id: com.gm.botpets
+Build-Jdk: 1.8.0_221
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/nlpconnector-service
+Created-By: Maven Integration for Eclipse
+

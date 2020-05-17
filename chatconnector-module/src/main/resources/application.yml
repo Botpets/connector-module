@@ -1,0 +1,35 @@
+### Spring properties
+# HTTP Server (Tomcat) Port
+server: 
+  port: ${PORT:8081}
+ 
+    
+spring:
+  application:
+    name: chatconnector-module
+
+
+info:
+  app:
+    name: chatconnector-module
+
+
+unsecured:
+       resources:
+         - /swagger-ui.html
+         - /swagger-resources/**
+         - /v2/api-docs
+         - /swagger-resources/configuration/ui
+         - /lib/*
+         - /images/*
+         - /css/*
+         - /swagger-ui.js
+         - /swagger-ui.min.js
+         - /api-docs
+         - /fonts/*
+         - /api-docs/*
+         - /api-docs/default/*
+         - /o2c.html
+         - index.html
+         - /webjars/**
+         - /api/unsecured/**
