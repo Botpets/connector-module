@@ -2,6 +2,7 @@ package com.gm.botpets.chatconnector.controller;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,16 @@ public class ChatController {
 		chatRequest.setSessionId(smsRequest.getMessageSid());
 		
 		SmsDTO smsDTO = new SmsDTO();
-		smsDTO.setFromnumber(smsRequest.getFrom());
 		smsDTO.setTonumber(smsRequest.getTo());
-		smsDTO.setMessage(smsRequest.getBody());
+		if(smsRequest.getBody().contains("@")) {
+		String from = "whatsapp:+"+StringUtils.substringBetween(smsRequest.getBody(), "@", " ");
+		String msg = smsRequest.getBody().substring(smsRequest.getBody().indexOf("@") + 14, smsRequest.getBody().length());
+		smsDTO.setMessage(msg);
+		smsDTO.setFromnumber(from);
+		}else {
+			smsDTO.setMessage(smsRequest.getBody());
+			smsDTO.setFromnumber(smsRequest.getFrom());
+		}
 		smsDTO.setSId(smsRequest.getAccountSid());
 		chatRequest.setChannelDTO(smsDTO);
 	}
